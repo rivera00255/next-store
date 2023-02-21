@@ -2,7 +2,7 @@
   border: 1px solid #e7e5e4;
   border-radius: 5px;
   width: 300px;
-  min-height: 300px;
+  height: 400px;
   margin: 10px;
   padding: 10px;
   > p {
@@ -15,6 +15,11 @@
     }
     &:last-of-type {
       color: #737373;
+    }
+  }
+  &:hover {
+    > p:first-of-type {
+      text-decoration: underline;
     }
   }
 }

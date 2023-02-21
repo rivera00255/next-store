@@ -6,7 +6,7 @@ const ProductPreview = ({ item }: { item: Product }) => {
   return (
     <div className={styles.item}>
       <div className={styles.img}>
-        <Image src={item.image} width={210} height={100} alt={item.title} unoptimized />
+        <Image src={item?.image} width={160} height={100} alt={item?.title} unoptimized />
       </div>
       <p>{item.title}</p>
       <p>$ {item.price}</p>

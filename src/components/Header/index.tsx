@@ -9,7 +9,7 @@ import Link from 'next/link';
 const notoSans = Noto_Sans({ subsets: ['latin'], weight: '400' });
 
 const Header = () => {
-  const { data: category } = useQuery(['categories'], () => fetcher(Method.GET, `${baseUrl}/products/categories`));
+  const { data: category } = useQuery(['category'], () => fetcher(Method.GET, `${baseUrl}/products/categories`));
   //   console.log(category);
 
   return (
@@ -21,7 +21,7 @@ const Header = () => {
         <ul>
           {category?.map((item: string) => (
             <li key={item}>
-              <Link href={`./${item}`}>{item.toLocaleUpperCase()}</Link>
+              <Link href={`../${item}`}>{item.toLocaleUpperCase()}</Link>
             </li>
           ))}
         </ul>
@@ -33,7 +33,7 @@ const Header = () => {
 
 export const getStaticProps = async () => {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(['categories'], () => fetcher(Method.GET, `${baseUrl}/products/categories`));
+  await queryClient.prefetchQuery(['category'], () => fetcher(Method.GET, `${baseUrl}/products/categories`));
 
   return {
     props: {

@@ -5,14 +5,14 @@ import { Method, Product } from '@/types';
 import { baseUrl } from '../_app';
 import styles from './index.module.scss';
 import { useMemo } from 'react';
-import Image from 'next/image';
 import ProductPreview from '@/components/ProductPreview';
+import Link from 'next/link';
 
 const Category = () => {
   const { query } = useRouter();
   //   console.log(query.category);
 
-  const { data } = useQuery(['byCategory', query.category], () => {
+  const { data } = useQuery(['ProductsByCategory', query.category], () => {
     return fetcher(Method.GET, `${baseUrl}/products/category/${query.category}`);
   });
   // console.log(data);
@@ -26,7 +26,9 @@ const Category = () => {
         <h3>{query?.category?.toString().toUpperCase()}</h3>
         <div>
           {products?.map((item: Product) => (
-            <ProductPreview key={item.id} item={item} />
+            <Link href={`./${item.category}/${item.id}`} key={item.id}>
+              <ProductPreview item={item} />
+            </Link>
           ))}
         </div>
       </section>

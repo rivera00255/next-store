@@ -5,6 +5,7 @@ import { baseUrl } from './_app';
 import styles from '../styles/main.module.scss';
 import { useMemo } from 'react';
 import ProductPreview from '@/components/ProductPreview';
+import Link from 'next/link';
 
 export default function Main() {
   const { data } = useQuery(['products'], () => {
@@ -18,7 +19,9 @@ export default function Main() {
       <section>
         <div>
           {products?.map((item: Product) => (
-            <ProductPreview item={item} key={item.id} />
+            <Link href={`../${item.category}/${item.id}`} key={item.id}>
+              <ProductPreview item={item} />
+            </Link>
           ))}
         </div>
       </section>
@@ -28,7 +31,7 @@ export default function Main() {
 
 export const getServerSideProps = async () => {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(['product'], () => {
+  await queryClient.prefetchQuery(['products'], () => {
     return fetcher(Method.GET, `${baseUrl}/proudcts`);
   });
   return {
