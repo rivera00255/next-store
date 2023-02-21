@@ -1,0 +1,36 @@
+.header {
+  > nav {
+    width: 960px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    > h1 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #f97316;
+    }
+    > ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 2;
+      > li {
+        margin: 0 16px;
+      }
+    }
+    > button {
+      padding: 2px 8px;
+      border-radius: 5px;
+      background: #fb923c;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 2px 2px 3px #d4d4d4;
+      &:hover {
+        background: #fdba74;
+        box-shadow: 1px 1px 2px #d4d4d4;
+      }
+    }
+  }
+}

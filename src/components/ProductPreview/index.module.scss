@@ -1,0 +1,27 @@
+.item {
+  border: 1px solid #e7e5e4;
+  border-radius: 5px;
+  width: 300px;
+  min-height: 300px;
+  margin: 10px;
+  padding: 10px;
+  > p {
+    text-align: center;
+    font-size: 15px;
+    &:first-of-type {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &:last-of-type {
+      color: #737373;
+    }
+  }
+}
+.img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 85%;
+  max-height: 90%;
+}

@@ -1,0 +1,20 @@
+.main {
+  > section {
+    width: 960px;
+    margin: 20px auto;
+    padding: 20px 0;
+    > h4 {
+      font-size: 14px;
+      color: #a3a3a3;
+    }
+    > h3 {
+      font-weight: 700;
+      color: #404040;
+    }
+    > div {
+      margin: 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
